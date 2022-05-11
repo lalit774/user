@@ -5,20 +5,20 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 import AuthContext from '../../store/auth-context';
 const emailReducer = (state, actions) => {
-  if(actions.type == 'USER_INPUT'){
+  if(actions.type === 'USER_INPUT'){
     return {value: actions.val, isValid: actions.val.includes('@')};
   }
-  if(actions.type == 'USER_BLUR'){
+  if(actions.type === 'USER_BLUR'){
     return {value: state.value, isValid: state.value.includes('@')};
   }
   return {value: '', isValid: false};
 };
 
 const passwordReducer = (state, actions) =>{
-  if(actions.type == 'USER_INPUT'){
+  if(actions.type === 'USER_INPUT'){
     return {value: actions.val, isValid: actions.val.trim().length > 6};
   }
-  if(actions.type == 'USER_BLUR'){
+  if(actions.type === 'USER_BLUR'){
     return {value: state.value, isValid: state.value.trim().length > 6};
   }
   return {value: '', isValid: false};
